@@ -13,5 +13,18 @@ function getRandomPin(){
     }else{
         return getRandomPin()
     }
-
 }
+// key pad function
+document.getElementById('key-pad').addEventListener('click',function(event){
+    const keyValue =event.target.innerText;
+    const keyInput = document.getElementById('typed-numbers');
+    const number = keyInput.value + keyValue;
+    if(isNaN(keyValue)){
+        if(keyValue == 'C'){
+            keyInput.value = '';
+        }
+    }else if(number.length < 6){
+        keyInput.value = number;
+    }
+    
+});
