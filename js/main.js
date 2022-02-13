@@ -22,13 +22,14 @@ document.getElementById('key-pad').addEventListener('click',function(event){
         if(keyValue == 'C'){
             keyInput.value = '';
         }
-    }else if(number.length < 6){
+    }else if(keyInput.value.length < 6){
         keyInput.value = number;
     }
 });
 // checking pin isTrue And false function
 function verifyPin(){
     const randomPin =document.getElementById('display-pin').value;
+    const key = document.getElementById('typed-numbers');
     const keyValue = document.getElementById('typed-numbers').value;
     // get message id
     const fail = document.getElementById('notify-fail');
@@ -37,8 +38,12 @@ function verifyPin(){
     if(randomPin == keyValue){
         success.style.display = 'block';
         fail.style.display = 'none';
+        key.style.border = '2px solid green';
+
     }else{
         fail.style.display = 'block';
         success.style.display = 'none';
+        key.style.border = '2px solid red';
+        // key.value = '';
     }
 }
